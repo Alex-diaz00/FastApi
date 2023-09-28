@@ -1,3 +1,5 @@
+from typing import List
+
 from validation import validate_price
 from fastapi import FastAPI
 from fastapi.testclient import TestClient
@@ -18,7 +20,7 @@ async def read_main():
 
 
 @app.post("/solution")
-def process_orders(orders: list[Order], criterion: str):
+def process_orders(orders: List[Order], criterion: str):
 
     if len(orders) == 0:
         return {"message": "The orders list should not be empty"}
